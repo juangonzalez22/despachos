@@ -3,6 +3,8 @@ from utils.reader import load_processes_from_csv
 from utils.visualizer import plot_gantt_charts, plot_comparison_chart
 from algorithms.fifo import run_fifo
 from algorithms.round_robin import run_round_robin
+from algorithms.sjf import run_sjf
+from algorithms.priority import run_priority
 
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -20,6 +22,8 @@ def main():
 
     results = {
         "FIFO": run_fifo(processes),
+        "SJF": run_sjf(processes),
+        "Priority": run_priority(processes),
         f"Round Robin (Q={quantum})": run_round_robin(processes, quantum=quantum)
     }
 
