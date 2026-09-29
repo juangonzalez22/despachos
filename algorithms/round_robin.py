@@ -79,19 +79,3 @@ def run_round_robin(processes: list[dict], quantum: int = 2) -> dict:
             "avg_waiting_time": avg_waiting_time
         }
     }
-
-
-if __name__ == "__main__":
-    sample_processes = [
-        {"id": "P1", "burst": 8, "arrival": 0, "priority": 1},
-        {"id": "P2", "burst": 5, "arrival": 1, "priority": 1},
-        {"id": "P3", "burst": 4, "arrival": 1, "priority": 2},
-        {"id": "P4", "burst": 4, "arrival": 2, "priority": 2},
-        {"id": "P5", "burst": 3, "arrival": 2, "priority": 1},
-        {"id": "P6", "burst": 6, "arrival": 3, "priority": 3},
-    ]
-
-    result = run_round_robin(sample_processes, quantum=2)
-    print("--- Resultado Round Robin (Quantum = 2) ---")
-    print(f"Tiempo de Sistema Promedio: {result['metrics']['avg_system_time']:.2f}")
-    print(f"Tiempo de Espera Promedio:  {result['metrics']['avg_waiting_time']:.2f}")
