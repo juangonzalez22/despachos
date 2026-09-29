@@ -34,15 +34,3 @@ def load_processes_from_csv(file_path: str) -> list[dict]:
     processes.sort(key=lambda x: x["arrival"])
     return processes
 
-
-if __name__ == "__main__":
-    try:
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        file_path = os.path.join(base_dir, "data", "procesos.csv")
-
-        data = load_processes_from_csv(file_path)
-        print("Lectura exitosa:")
-        for p in data:
-            print(p)
-    except Exception as e:
-        print(f"Error: {e}")
